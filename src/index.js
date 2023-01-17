@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 //import Notiflix from 'notiflix';
-import axios from 'axios';
+
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 import fetchImages from './fetch-images';
@@ -10,12 +10,13 @@ import fetchImages from './fetch-images';
 //Notiflix.Notify.info('Cogito ergo sum');
 
 
-const searchForm = document.querySelector('.search-form');
+const searchForm = document.querySelector('#search-form');
 const gallery = document.querySelector('.gallery');
 const loadMoreBtn = document.querySelector('.load-more');
 const endCollectionText = document.querySelector('.end-collection-text');
 
-loadMoreBtn.classList.add('is-hidden');
+//loadMoreBtn.classList.add('is-hidden');
+
 function renderCardImage(arr) {
   const markup = arr.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => {
     return `
@@ -59,9 +60,9 @@ async function onSubmitSearchForm(evt) {
   evt.preventDefault();
   searchQuery = evt.currentTarget.searchQuery.value;
   currentPage = 1;
-  if (!loadMoreBtn.classList.contains('is-hidden')) {
-    loadMoreBtn.classList.add('is-hidden');
-  }
+  // if (!loadMoreBtn.classList.contains('is-hidden')) {
+  //   loadMoreBtn.classList.add('is-hidden');
+  // }
   
   if (searchQuery === '') {
     return;
